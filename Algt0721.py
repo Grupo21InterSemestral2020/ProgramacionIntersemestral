@@ -2,9 +2,9 @@ class Mouse:
     def __init__(self,marca,color,tipo):
         self.__marca = marca
         self.__color = color
-        self.__tipo = tipo
+        self.__tipo = tipo 
 
-        @property
+    @property
     def marca(self):
         return self.__marca
     
@@ -27,3 +27,6 @@ class Mouse:
     @tipo.setter
     def tipo(self,valor):
         self.__tipo = valor 
+    
+    def ImpInfo(self):
+        print(f'Marca {self.__marca}, Color:{self.__color},Tipo:{self.__tipo}')
