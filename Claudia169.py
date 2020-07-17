@@ -1,5 +1,6 @@
 class Mouse:
-    def _init_(self,marca,color, tipo):
+    cantidadMouse = 0
+    def _init_(self,marca="Logitech",color="Negro", tipo="Inalambrico"):
         self._marca = marca
         self._color = color
         self._tipo = tipo
@@ -14,6 +15,9 @@ class Mouse:
     @property
     def color (self):
         return self._tipo
+        Mouse.cantidadMouse +=1
 
-    def imprimir (self):
-        print ("Mouse existente")
+    def imprimirinfo(self):
+        print(f"Marca: {self._marca}, Color: {self._color}, Tipo: {self._tipo}")
+
+
