@@ -30,3 +30,17 @@ class Empleado:
 
     def AgregarEmpleado():
         archivo = open("./BD/empleados.txt","a",encoding="utf8")
+        idEmpleado = input("Ingresa el ID con el que registraras al Empleado:\n")
+        with open("./BD/empleados.txt","r",encoding="utf8") as empleados:
+            num = empleados.readlines()
+            for f in num:
+                while idEmpleado in f: 
+                    idEmpleado = input("Lo siento, ese ID ya existe, ingrese otro:\n")
+            Nombre = str(input("Ingresa su Nombre:\n"))
+            Direccion = str(input("Ingresa su Dirección:\n"))
+            archivo.write(f"{idEmpleado} | {Nombre} | {Direccion}\n")
+            archivo.close
+    def EliminarEmpleado():
+        
+
+Empleado.AgregarEmpleado()
