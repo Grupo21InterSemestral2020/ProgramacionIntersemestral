@@ -17,24 +17,25 @@ class Mouse:
         return self._color
 
     @color.setter
-    def color (self):
-        self._color=colorVariedad
+    def color (self,colorVariedad):
+        self._color = colorVariedad
+
 
     @property
     def tipo (self):
         return self._tipo
 
     @tipo.setter
-    def tipo (self):
-        self._tipo=tipoVariedad
+    def tipo (self,tipoVariedad):
+        self._tipo = tipoVariedad
 
    
-        Mouse.cantidadMouse +=1
 
     def imprimirinfo(self):
         print(f"Marca: {self._marca}, Color: {self._color}, Tipo: {self._tipo}")
 
 m1 = Mouse("Logitech","Negro","Inalambrico")
+m2 = Mouse ()
 
 print (f"Mouse disponibles: {Mouse.cantidadMouse}")
 m1.tipo ="Inalambrico"
