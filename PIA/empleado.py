@@ -29,18 +29,34 @@ class Empleado:
         self.__Direccion = valor
 
     def AgregarEmpleado():
-        archivo = open("./BD/empleados.txt","a",encoding="utf8")
+        empleados = open("./BD/empleados.txt","r",encoding="utf8")
+        num = empleados.readlines()
+        empleados.close
         idEmpleado = input("Ingresa el ID con el que registraras al Empleado:\n")
-        with open("./BD/empleados.txt","r",encoding="utf8") as empleados:
-            num = empleados.readlines()
+        with open("./BD/empleados.txt","a+",encoding="utf8") as empleados:
             for f in num:
                 while idEmpleado in f: 
                     idEmpleado = input("Lo siento, ese ID ya existe, ingrese otro:\n")
             Nombre = str(input("Ingresa su Nombre:\n"))
             Direccion = str(input("Ingresa su Dirección:\n"))
-            archivo.write(f"{idEmpleado} | {Nombre} | {Direccion}\n")
-            archivo.close
+            empleados.write(idEmpleado + '|' + Nombre + '|' + Direccion + '\n')
+            empleados.close
+   
     def EliminarEmpleado():
-        
+        empleados = open("./BD/empleados.txt","r",encoding="utf8")
+        lines = empleados.readlines()
+        print(lines)
+        empleados.close()
+        empleados = open("./BD/empleados.txt","w+",encoding="utf8")
+        idEmpleado = int(input("Ingrese Id de empleado a eliminar: "))
+        for line in lines:
+            id = line.split("|")[0]
+            if line!=id:
+                empleados.write(line)
+        lines = empleados.readlines()
+        print(lines)
+        empleados.close()
 
 Empleado.AgregarEmpleado()
+Empleado.AgregarEmpleado()
+Empleado.EliminarEmpleado()
