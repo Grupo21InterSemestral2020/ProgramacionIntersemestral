@@ -29,15 +29,17 @@ class Empleado:
         self.__Direccion = valor
 
     def AgregarEmpleado():
-        archivo = open("./BD/empleados.txt","a",encoding="utf8")
+        empleados = open("./BD/empleados.txt","r",encoding="utf8")
+        num = empleados.readlines()
+        empleados.close
         idEmpleado = input("Ingresa el ID con el que registraras al Empleado:\n")
-        with open("./BD/empleados.txt","r",encoding="utf8") as empleados:
-            num = empleados.readlines()
+        with open("./BD/empleados.txt","a+",encoding="utf8") as empleados:
             for f in num:
                 while idEmpleado in f: 
                     idEmpleado = input("Lo siento, ese ID ya existe, ingrese otro:\n")
             Nombre = str(input("Ingresa su Nombre:\n"))
             Direccion = str(input("Ingresa su Dirección:\n"))
+<<<<<<< HEAD
             archivo.write(f"{idEmpleado} | {Nombre} | {Direccion}\n")
             archivo.close
     
@@ -83,3 +85,26 @@ for line in lines:
         Direccion=str(input("Direccion:"))
         archivo.writelines(idEmpleado + "|" + Nombre + "|" + Direccion + "\n")        
         #<3<3<3<<33<3<3<3<3<3<3<3<3       Yaki  y  Johan    <3<3<3<3<3<3<33<3<3<3<3<33
+=======
+            empleados.write(idEmpleado + '|' + Nombre + '|' + Direccion + '\n')
+            empleados.close
+   
+    def EliminarEmpleado():
+        empleados = open("./BD/empleados.txt","r",encoding="utf8")
+        lines = empleados.readlines()
+        print(lines)
+        empleados.close()
+        empleados = open("./BD/empleados.txt","w+",encoding="utf8")
+        idEmpleado = int(input("Ingrese Id de empleado a eliminar: "))
+        for line in lines:
+            id = line.split("|")[0]
+            if line!=id:
+                empleados.write(line)
+        lines = empleados.readlines()
+        print(lines)
+        empleados.close()
+
+Empleado.AgregarEmpleado()
+Empleado.AgregarEmpleado()
+Empleado.EliminarEmpleado()
+>>>>>>> ad213252f7e676a226b99266ee89b995d489de06
