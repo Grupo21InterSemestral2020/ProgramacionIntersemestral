@@ -1,3 +1,4 @@
+import os
 class Empleado:
     def __init__(self,idEmpleado,Nombre,Direccion):
         self.__idEmpleado = idEmpleado
@@ -28,35 +29,41 @@ class Empleado:
     def Direccion(self,valor):
         self.__Direccion = valor
 
-    def AgregarEmpleado():
-        empleados = open("./BD/empleados.txt","r",encoding="utf8")
-        num = empleados.readlines()
-        empleados.close
-        idEmpleado = input("Ingresa el ID con el que registraras al Empleado:\n")
-        with open("./BD/empleados.txt","a+",encoding="utf8") as empleados:
+    def AgregarEmpleado(self):
+        self.archivo = open("./BD/empleados.txt","a",encoding="utf8")
+        self.__idEmpleado = input("Id \n")
+        with open("./BD/empleados.txt","r",encoding="utf8") as empleados:
+            num = empleados.readlines()
             for f in num:
-                while idEmpleado in f: 
-                    idEmpleado = input("Lo siento, ese ID ya existe, ingrese otro:\n")
-            Nombre = str(input("Ingresa su Nombre:\n"))
-            Direccion = str(input("Ingresa su Dirección:\n"))
-            empleados.write(idEmpleado + '|' + Nombre + '|' + Direccion + '\n')
-            empleados.close
+                while self.__idEmpleado in f: 
+                    self.__idEmpleado = input("Lo siento, ese ID ya existe, ingrese otro:\n")
+                empleados.close()
+        print("Nombre del Empleado:\n")
+        self.__Nombre = input("Nombre: \n")
+        print("Direccion del Empleado")
+        self.__Direccion = input("> ")
+        self.archivo.write(self.__idEmpleado + "|" + self.__Nombre + "|" + self.__Direccion + "\n")
+        self.archivo.close()
    
-    def EliminarEmpleado():
-        empleados = open("./BD/empleados.txt","r",encoding="utf8")
-        lines = empleados.readlines()
-        print(lines)
-        empleados.close()
-        empleados = open("./BD/empleados.txt","w+",encoding="utf8")
-        idEmpleado = int(input("Ingrese Id de empleado a eliminar: "))
-        for line in lines:
-            id = line.split("|")[0]
-            if line!=id:
-                empleados.write(line)
-        lines = empleados.readlines()
-        print(lines)
-        empleados.close()
+    def EliminarEmpleado(self):
+        self.archivo = open("./BD/empleados.txt","r",encoding="utf8")
+        self.archivo_temporal = open("./BD/empleados_temp.txt","w",encoding="utf8")
 
-Empleado.AgregarEmpleado()
-Empleado.AgregarEmpleado()
-Empleado.EliminarEmpleado()
+        print("ID a borrar")
+        self.id_delete = input("ID Del:")
+
+        for renglon in self.archivo:
+            id = renglon.split("|")[0]
+            if self.id_delete != id:
+                self.archivo_temporal.write(renglon)
+    
+        self.archivo.close()
+        self.archivo_temporal.close()
+
+        os.remove("./BD/empleados.txt")
+        os.rename("./BD/empleados_temp.txt","./BD/empleados.txt")
+
+E = Empleado(0,0,0)
+E.AgregarEmpleado()
+E.AgregarEmpleado()
+E.EliminarEmpleado()

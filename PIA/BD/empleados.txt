@@ -1,14 +1,3 @@
-1|Johan|Avena 111
-2|Ada|Hany 222
-1|msms|ede
-3|dkdd|3el
-1|Johan|Avena 111
-2|Ada|Hany 222
-1|msms|ede
-3|dkdd|3el
-4|JOHAN|JS
-IEIEIE|IDISID|OEOEOE
-5|Michi|Ru
-7|Hikaru|Alalala
-10|adw|qwe
-12|wwqq|sdd
+1|johan|hiro
+2|ada|michiru
+4|are|hany
