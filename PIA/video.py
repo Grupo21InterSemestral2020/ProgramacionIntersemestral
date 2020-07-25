@@ -37,3 +37,13 @@ def __init__(self, idVideo, nombre, url, fechapublicacion):
     @idVideo.setter
     def fechapublicacion(self, valor):
         self.__fechapublicacion = __fechapublicacion
+
+    @static.method
+        def agregarvideo():
+            while True:
+                while True:
+                    try
+                        idVideo=int(input("Ingrese ID del Video: "))
+                        break
+                    except:
+                        
