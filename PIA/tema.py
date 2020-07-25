@@ -5,7 +5,7 @@ class Tema:
         self.__Nombre = Nombre
         
     @property
-    def idTema(Self):
+    def idTema(self):
         return self.__idTema
 
     @property
@@ -19,3 +19,34 @@ class Tema:
     @Nombre.setter
     def Nombre(self,valor):
         self.__Nombre = valor
+
+    def AgregarTema(self):
+        self.archivo = open("./BD/temas.txt","a",encoding="utf8")
+        self.__idTema = input("Ingrese el ID:\n")
+        with open("./BD/temas.txt","r",encoding="utf8") as temas:
+            num = temas.readlines()
+            for f in num:
+                while self.__idTema in f: 
+                    self.__idTema = input("Lo siento, ese ID ya existe, ingrese otro!!:\n")
+                temas.close()
+        self.__Nombre = input("Ingrese Nombre del Tema:\n")
+        self.archivo.write(self.__idTema + "|" + self.__Nombre + "\n")
+        self.archivo.close()
+
+    def EliminarTema(self):
+        self.archivo = open("./BD/temas.txt","r",encoding="utf8")
+        self.archivo_temporal = open("./BD/temas_temp.txt","w",encoding="utf8")
+        self.id_delete = input("ID del Tema a borrar:\n")
+        for renglon in self.archivo:
+            id = renglon.split("|")[0]
+            if self.id_delete != id:
+                self.archivo_temporal.write(renglon)    
+        self.archivo.close()
+        self.archivo_temporal.close()
+        os.remove("./BD/temas.txt")
+        os.rename("./BD/temas_temp.txt","./BD/temas.txt")
+    
+    def ConsultaTema(self):
+        self.archivo = open("./BD/temas.txt",encoding="utf8")
+        print(self.archivo.read())
+        self.archivo.close()
