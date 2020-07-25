@@ -5,7 +5,7 @@ class Tema:
         self.__Nombre = Nombre
         
     @property
-    def idTema(Self):
+    def idTema(self):
         return self.__idTema
 
     @property
