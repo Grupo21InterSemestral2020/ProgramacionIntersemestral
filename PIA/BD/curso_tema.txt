@@ -1,4 +1,4 @@
-idCursoTema | idCurso | idCursoTema
+idCursoTema | idCurso | idTema
 0001        |001      |01
 0005        |005      |05
 0002        |002      |02
