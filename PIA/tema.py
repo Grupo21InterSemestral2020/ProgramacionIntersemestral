@@ -32,3 +32,21 @@ class Tema:
         self.__Nombre = input("Ingrese Nombre del Tema:\n")
         self.archivo.write(self.__idTema + "|" + self.__Nombre + "\n")
         self.archivo.close()
+
+    def EliminarTema(self):
+        self.archivo = open("./BD/temas.txt","r",encoding="utf8")
+        self.archivo_temporal = open("./BD/temas_temp.txt","w",encoding="utf8")
+        self.id_delete = input("ID del Tema a borrar:\n")
+        for renglon in self.archivo:
+            id = renglon.split("|")[0]
+            if self.id_delete != id:
+                self.archivo_temporal.write(renglon)    
+        self.archivo.close()
+        self.archivo_temporal.close()
+        os.remove("./BD/temas.txt")
+        os.rename("./BD/temas_temp.txt","./BD/temas.txt")
+    
+    def ConsultaTema(self):
+        self.archivo = open("./BD/temas.txt",encoding="utf8")
+        print(self.archivo.read())
+        self.archivo.close()
