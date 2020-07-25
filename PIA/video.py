@@ -1,4 +1,4 @@
-class Video
+class Video:
 
 def __init__(self, idVideo, nombre, url, fechapublicacion):
     self.__idVideo = idVideo
