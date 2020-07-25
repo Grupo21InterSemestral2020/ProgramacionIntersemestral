@@ -6,7 +6,7 @@ class Empleado:
         self.__Direccion = Direccion
 
     @property
-    def idEmpleado(Self):
+    def idEmpleado(self):
         return self.__idEmpleado
 
     @property
