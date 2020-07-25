@@ -1,0 +1,6 @@
+idVideo|nombre|url|fechapublicacion
+01|Introduccion|www.cursotec.com.mx/curso/video/introduccion.html|1 de febrero del 2016
+02|Tema 1|www.cursotec.com.mx/curso/video/tema-1.html|8 de febrero del 2016
+03|Tema 2|www.cursotec.com.mx/curso/video/tema-2.html|15 de febrero del 2016
+04|Tema 3|www.cursotec.com.mx/curso/video/tema-3.html|22 de febrero del 2016
+05|Fin de Curso|www.cursotec.com.mx/curso/video/fin-de-curso.html|28 de febrero del 2016
