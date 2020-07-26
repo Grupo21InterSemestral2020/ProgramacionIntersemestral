@@ -46,7 +46,7 @@ class Curso_tema:
 
     def EliminarTemaAsignado(self):
         self.archivo = open("./BD/curso_tema.txt","r",encoding="utf8")
-        self.archivo_temporal = open("./BD/temas_temp.txt","w",encoding="utf8")
+        self.archivo_temporal = open("./BD/curso_tema.txt","w",encoding="utf8")
         self.id_delete = input("ID del Tema a borrar:\n")
         for renglon in self.archivo:
             id = renglon.split("|")[0]
@@ -56,6 +56,6 @@ class Curso_tema:
         self.archivo_temporal.close()
     
     def ConsultaTemaAsignado(self):
-        self.archivo = open("./BD/TemaAsignado.txt",encoding="utf8")
+        self.archivo = open("./BD/curso_tema.txt",encoding="utf8")
         print(self.archivo.read())
         self.archivo.close()
