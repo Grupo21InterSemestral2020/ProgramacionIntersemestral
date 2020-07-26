@@ -1,4 +1,3 @@
-  
 idCurso | descripcion | idEmpleado
 0002    |     001     |     01
 0005    |     005     |     05
