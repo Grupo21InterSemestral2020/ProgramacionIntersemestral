@@ -29,8 +29,19 @@ if opcion1 <= 6:
         opcion2 = menu_opciones()
 
 while True:
-
-    if opcion1 == 2:
+    if opcion1 == 1:
+        if opcion2 == 1:
+            C.AgregarCurso()
+        elif opcion2 == 2:
+            C.EliminarCurso()
+        elif opcion2 == 3:
+            C.ModificarCurso()
+        elif opcion2 == 4:
+            C.ConsultaCurso_()
+        elif opcion2 == 5:
+            C.InfoCurso()
+    
+    elif opcion1 == 2:
         if opcion2 == 1:
             E.AgregarEmpleado()
         elif opcion2 == 2:

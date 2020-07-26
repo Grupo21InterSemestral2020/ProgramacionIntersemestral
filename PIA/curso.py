@@ -46,7 +46,7 @@ class Curso:
     def EliminarCurso(self):
         self.archivo = open("./BD/curso.txt","r",encoding="utf8")
         self.archivo_temporal = open("./BD/curso_temp.txt","w",encoding="utf8")
-        self.id_delete = input("ID del Empleado a borrar:\n")
+        self.id_delete = input("ID del Curso a borrar:\n")
         for renglon in self.archivo:
             id = renglon.split("|")[0]
             if self.id_delete != id:
@@ -64,7 +64,7 @@ class Curso:
 
     def InfoCurso(self):
         self.archivo = open("./BD/curso.txt",encoding="utf8")
-        self.id_cursosearch = input("Ingresa ID del curso a cursar:\n")
+        self.id_cursosearch = input("Ingresa ID del curso a buscar:\n")
         for renglon in self.archivo:
             id = renglon.split("|")[0]
             if self.id_cursoearch == id:
@@ -77,7 +77,7 @@ class Curso:
         self.id_change = input("Actual ID:\n")
         self.__idCurso = input("Nuevo ID\n:")
         self.__Descripcion = input("Ingrese Nueva Descripcion:\n")
-        self.__Empleado = input("Ingrese nueva empleado:\n")
+        self.__Empleado = input("Ingrese nuevo empleado:\n")
         for renglon in self.archivo:
             id = renglon.split("|")[0]
             if self.id_change != id:
