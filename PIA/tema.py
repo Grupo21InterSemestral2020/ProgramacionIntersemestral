@@ -60,3 +60,27 @@ class Tema:
                 print(renglon)
         self.archivo.close()
         
+    def ModificarTema(self):
+        self.archivo = open("./BD/temas.txt","r",encoding="utf8")
+        self.archivo_temporal = open("./BD/temas_temp.txt","w",encoding="utf8")
+        self.id_change = input("Actual ID:\n")
+        self.__idTema = input("Nuevo ID\n:")
+        self.__Nombre = input("Ingrese Nuevo Nombre:\n")
+        for renglon in self.archivo:
+            id = renglon.split("|")[0]
+            if self.id_change != id:
+                self.archivo_temporal.write(renglon)
+            elif self.id_change == id:
+                self.archivo_temporal.write(self.__idTema + "|" + self.__Nombre + "\n")
+        self.archivo.close()
+        self.archivo_temporal.close()
+        os.remove("./BD/temas.txt")
+        os.rename("./BD/temas_temp.txt","./BD/temas.txt")
+
+T = Tema(0,0)
+T.AgregarTema()
+T.AgregarTema()
+T.ModificarTema()
+T.ConsultaTema()
+T.EliminarTema()
+T.InfoTema()
