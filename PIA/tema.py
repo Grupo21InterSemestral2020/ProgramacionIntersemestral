@@ -76,11 +76,3 @@ class Tema:
         self.archivo_temporal.close()
         os.remove("./BD/temas.txt")
         os.rename("./BD/temas_temp.txt","./BD/temas.txt")
-
-T = Tema(0,0)
-T.AgregarTema()
-T.AgregarTema()
-T.ModificarTema()
-T.ConsultaTema()
-T.EliminarTema()
-T.InfoTema()

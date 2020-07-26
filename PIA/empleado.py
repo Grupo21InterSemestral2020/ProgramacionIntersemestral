@@ -88,11 +88,3 @@ class Empleado:
         self.archivo_temporal.close()
         os.remove("./BD/empleados.txt")
         os.rename("./BD/empleados_temp.txt","./BD/empleados.txt")
-
-E = Empleado(0,0,0)
-E.AgregarEmpleado()
-E.AgregarEmpleado()
-E.ModificarEmpleado()
-E.ConsultaEmpleado()
-E.EliminarEmpleado()
-E.InfoEmpleado()

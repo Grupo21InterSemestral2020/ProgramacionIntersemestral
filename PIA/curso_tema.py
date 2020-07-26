@@ -84,10 +84,3 @@ class Curso_tema:
                 self.archivo_temporal.write(self.__idTema + "|" + self.__idCurso + "|" + self.__idCursoTema +"\n")
         self.archivo.close()
         self.archivo_temporal.close()
-
-CT = Curso_tema(0,0,0)
-CT.AgregarTemaAsignado()
-CT.ModificarTemaAsignado()
-CT.ConsultaTemaAsignado()
-CT.EliminarTemaAsignado()
-CT.InfoTemaAsignado()
