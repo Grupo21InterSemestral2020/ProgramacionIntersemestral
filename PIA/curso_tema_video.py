@@ -33,5 +33,24 @@ class video_tema:
                 while self.__idCursoTv in f: 
                     self.__idCursoTv = input("Este ID ya existe, ingrese otro:\n")
                 curso.close()
+        self.__idVideo = input("Ingrese un Id Video:\n")
+        self.__idCursoTema = input("Ingrese un Id CursoTema:\n")
+        self.archivo.write(self.__idCursoTv + "|" + self.__idVideo + "|" + self.__idCursoTema + "\n")
+        self.archivo.close()
 
+    def EliminarVideoAsignado(self):
+        self.archivo = open("./BD/curso_tema_videos.txt","r",encoding="utf8")
+        self.archivo_temporal = open("./BD/video_temp.txt","w",encoding="utf8")
+        self.id_delete = input("ID del Video a borrar:\n")
+        for renglon in self.archivo:
+            id = renglon.split("|")[0]
+            if self.id_delete != id:
+                self.archivo_temporal.write(renglon)    
+        self.archivo.close()
+        self.archivo_temporal.close()
+    
+    def ConsultaTemaAsignado(self):
+        self.archivo = open("./BD/VideoAsignado.txt",encoding="utf8")
+        print(self.archivo.read())
+        self.archivo.close()
 
