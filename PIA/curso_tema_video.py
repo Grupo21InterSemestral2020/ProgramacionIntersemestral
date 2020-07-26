@@ -40,7 +40,7 @@ class video_tema:
 
     def EliminarVideoAsignado(self):
         self.archivo = open("./BD/curso_tema_videos.txt","r",encoding="utf8")
-        self.archivo_temporal = open("./BD/video_temp.txt","w",encoding="utf8")
+        self.archivo_temporal = open("./BD/curso_tema_videos.txt","w",encoding="utf8")
         self.id_delete = input("ID del Video a borrar:\n")
         for renglon in self.archivo:
             id = renglon.split("|")[0]
@@ -50,7 +50,36 @@ class video_tema:
         self.archivo_temporal.close()
     
     def ConsultaTemaAsignado(self):
-        self.archivo = open("./BD/VideoAsignado.txt",encoding="utf8")
+        self.archivo = open("./BD/curso_tema_videos.txt",encoding="utf8")
         print(self.archivo.read())
         self.archivo.close()
+    def InfoVideoAsignado(self):
+        self.archivo = open("./BD/curso_tema_videos.txt","r",encoding="utf8"
+        self.idCursoTvsearch = input("Ingresa el ID del Curso video para buscar informacion:\n")
+        for renglon in self.archivo:
+            id = renglon.split("|")[0]
+            if self.id_CursoTvsearch == id:
+                print(renglon)
+        self.archivo.close()
+    def ModificarVideoAsignado(self):
+        self.archivo = open("./BD/curso_tema_videos.txt","r",encoding="utf8")
+        self.archivo_temporal = open("./BD/curso_tema_videos.txt","w",encoding="utf8")
+        self.id_change = input("Actual ID:\n")
+        self.__idCursoTv = input("Nuevo ID Curso Video:\n")
+        self.__idVideo = input("Ingrese nuevo IdVideo:\n")
+        self.__idCursoTema = input("Ingrese nuevo IdCursoTema:\n")
+        for renglon in self.archivo:
+            id = renglon.split("|")[0]
+            if self._change != id:
+                self.archivo_temporal.write(renglon)
+            elif self.id_change == id:
+                self.archivo_temporal.write(self.__idCursoTv + "|" + self.__idVideo + "|" + self.__idCursoTema +"\n")
+        self.archivo.close()
+        self.archivo_temporal.close()
 
+CTV = curso_tema_videos(0,0,0)
+CTV.AgregarVideoAsignado()
+CTV.ModificarVideoAsignado()
+CTV.ConsultaTemaAsignado()
+CTV.EliminarVideoAsignado()
+CTV.InfoVideoAsignado()
