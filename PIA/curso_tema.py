@@ -38,8 +38,8 @@ class Curso_tema:
                 while self.__idCursoTema in f: 
                     self.__idCursoTema = input("Lo siento, ese ID ya existe, ingrese otro!!:\n")
                 curso.close()
-        self.__idCurso = input("Ingrese Nombre del Empleado:\n")
-        self.__idTema = input("Ingrese Dirección del Empleado:\n")
+        self.__idCurso = input("Ingrese algún Id curso:\n")
+        self.__idTema = input("Ingrese un Id Tema:\n")
         self.archivo.write(self.__idCursoTema + "|" + self.__idCurso + "|" + self.__idTema + "\n")
         self.archivo.close()
 
