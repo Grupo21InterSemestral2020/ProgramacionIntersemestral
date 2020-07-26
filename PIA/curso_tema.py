@@ -59,3 +59,35 @@ class Curso_tema:
         self.archivo = open("./BD/curso_tema.txt",encoding="utf8")
         print(self.archivo.read())
         self.archivo.close()
+
+    def InfoTemaAsignado(self):
+        self.archivo = open("./BD/curso_tema.txt",encoding="utf8")
+        self.id_cursoTemasearch = input("Ingresa ID del Curso tema para buscar su información:\n")
+        for renglon in self.archivo:
+            id = renglon.split("|")[0]
+            if self.id_cursoTemasearch == id:
+                print(renglon)
+        self.archivo.close()
+        
+    def ModificarTemaAsignado(self):
+        self.archivo = open("./BD/curso_tema.txt","r",encoding="utf8")
+        self.archivo_temporal = open("./BD/cursoTema_temp.txt","w",encoding="utf8")
+        self.id_change = input("Actual ID:\n")
+        self.__idCursoTema = input("Nuevo ID Curso Tema\n:")
+        self.__idCurso = input("Ingrese Nuevo ID Curso:\n")
+        self.__idTema = input ("Ingresa Nuevo ID Tema")
+        for renglon in self.archivo:
+            id = renglon.split("|")[0]
+            if self.id_change != id:
+                self.archivo_temporal.write(renglon)
+            elif self.id_change == id:
+                self.archivo_temporal.write(self.__idTema + "|" + self.__idCurso + "|" + self.__idCursoTema +"\n")
+        self.archivo.close()
+        self.archivo_temporal.close()
+
+CT = Curso_tema(0,0,0)
+CT.AgregarTemaAsignado()
+CT.ModificarTemaAsignado()
+CT.ConsultaTemaAsignado()
+CT.EliminarTemaAsignado()
+CT.InfoTemaAsignado()
