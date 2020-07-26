@@ -34,9 +34,9 @@ def __init__(self, idVideo, nombre, url, fechapublicacion):
     def fechapublicacion(self):
         return self.__fechapublicacion
 
-    @idVideo.setter
+    @fechapublicacion.setter
     def fechapublicacion(self, valor):
-        self.__fechapublicacion = __fechapublicacion
+        self.__fechapublicacion = fechapublicacion
 
     def agregarVideo(self):
             self.archivo = open("./BD/video.txt","a",encoding="utf8")
@@ -99,11 +99,4 @@ def __init__(self, idVideo, nombre, url, fechapublicacion):
         os.remove("./BD/video.txt")
         os.rename("./BD/video_temp.txt","./BD/video.txt")
 
-E = Video(0,0,0)
-E.agregarVideo()
-E.agregarVideo()
-E.modificarVideo()
-E.consultaVideos()
-E.borrarVideo()
-E.detallesVideo()
-                    
+        
