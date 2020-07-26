@@ -29,6 +29,7 @@ if opcion1 <= 6:
         opcion2 = menu_opciones()
 
 while True:
+
     if opcion1 == 2:
         if opcion2 == 1:
             E.AgregarEmpleado()
@@ -52,6 +53,18 @@ while True:
             T.ConsultaTema()
         elif opcion2 == 5:
             T.InfoTema()
+    
+    elif opcion1 == 5:
+        if opcion2 == 1:
+            CT.AgregarTemaAsignado()
+        elif opcion2 == 2:
+            CT.EliminarTemaAsignado()
+        elif opcion2 == 3:
+            CT.ModificarTemaAsignado()
+        elif opcion2 == 4:
+            CT.ConsultaTemaAsignado()
+        elif opcion2 == 5:
+            CT.InfoTemaAsignado()
 
     elif opcion1 == 7:
         quit()
