@@ -76,10 +76,3 @@ class video_tema:
                 self.archivo_temporal.write(self.__idCursoTv + "|" + self.__idVideo + "|" + self.__idCursoTema +"\n")
         self.archivo.close()
         self.archivo_temporal.close()
-
-CTV = curso_tema_videos(0,0,0)
-CTV.AgregarVideoAsignado()
-CTV.ModificarVideoAsignado()
-CTV.ConsultaTemaAsignado()
-CTV.EliminarVideoAsignado()
-CTV.InfoVideoAsignado()

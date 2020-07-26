@@ -11,7 +11,7 @@ E = Info_Empleado(0,0,0)
 V = Video(0,0,0,0)
 T = Tema(0,0)
 CT = Curso_Tema(0,0,0)
-CTV = Curso_Tema_Video(0,0,0)
+CTV = video_tema(0,0,0)
 
 def menu_principal():
     print("\n")
@@ -76,6 +76,18 @@ while True:
             CT.ConsultaTemaAsignado()
         elif opcion2 == 5:
             CT.InfoTemaAsignado()
+    
+    elif opcion1 == 6:
+        if opcion2 == 1:
+            CTV.AgregarVideoAsignado()
+        elif opcion2 == 2:
+            CTV.EliminarVideoAsignado()
+        elif opcion2 == 3:
+            CTV.ModificarVideoAsignado()
+        elif opcion2 == 4:
+            CTV.ConsultaTemaAsignado()
+        elif opcion2 == 5:
+            CTV.InfoVideoAsignado()
 
     elif opcion1 == 7:
         quit()
