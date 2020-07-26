@@ -1,96 +1,90 @@
+import os
 class Curso:
-
-    def __init__(self, idCurso, descripcion, idEmpleado):
+    def __init__(self,idCurso,Descripcion,Empleado):
         self.__idCurso = idCurso
-        self.__descripcion = descripcion
-        self.__idEmpleado = idEmpleado
+        self.__Descripcion = Descripcion
+        self.__Empleado = Empleado
 
     @property
     def idCurso(self):
         return self.__idCurso
-    
+
+    @property
+    def Descripcion(self):
+        return self.__Descripcion
+
+    @property
+    def Empleado(self):
+        return self.__Empleado
+
     @idCurso.setter
-    def idCurso(self, valor):
+    def idCurso(self,valor):
         self.__idCurso = valor
-
-    @property
-    def descripcion(self):
-        return self.__descripcion
     
-    @descripcion.setter
-    def descripcion(self, valor):
-        self.__descripcion = valor
+    @Descripcion.setter
+    def Descripcion(self,valor):
+        self.__Descripcion = valor
+
+    @Empleado.setter
+    def Empleado(self,valor):
+        self.__Empleado = valor
+
+    def AgregarCurso(self):
+        self.archivo = open("./BD/curso.txt","a",encoding="utf8")
+        self.__idCurso = input("Ingrese el ID:\n")
+        with open("./BD/curso.txt","r",encoding="utf8") as curso:
+            num = curso.readlines()
+            for f in num:
+                while self.__idCurso in f: 
+                    self.__idCurso = input("Lo siento, ese ID ya existe, ingrese otro!!:\n")
+                curso.close()
+        self.__Descripcion = input("Ingrese Descripcion:\n")
+        self.__Empleado = input("Ingrese Id del Empleado:\n")
+        self.archivo.write(self.__idCurso + "|" + self.__Descripcion + "|" + self.__Empleado + "\n")
+        self.archivo.close()
+   
+    def EliminarCurso(self):
+        self.archivo = open("./BD/curso.txt","r",encoding="utf8")
+        self.archivo_temporal = open("./BD/curso_temp.txt","w",encoding="utf8")
+        self.id_delete = input("ID del Curso a borrar:\n")
+        for renglon in self.archivo:
+            id = renglon.split("|")[0]
+            if self.id_delete != id:
+                self.archivo_temporal.write(renglon)    
+        self.archivo.close()
+        self.archivo_temporal.close()
+        os.remove("./BD/curso.txt")
+        os.rename("./BD/curso_temp.txt","./BD/curso.txt")
     
-    @property
-    def idEmpleado(self):
-        return self.__idEmpleado
+    def ConsultaCurso(self):
+        self.archivo = open("./BD/curso.txt",encoding="utf8")
+        print(self.archivo.read())
+        self.archivo.close()
 
-    @idEmpleado.setter
-    def idEmpelado(self, valor):
-        self.__idEmpleado = valor
 
-    @staticmethod
-    def agregarCurso():
-        while True:
-            while True:
-                try:
-                    idCurso=int(input("Ingresar el ID: "))
-                    break
-                except:
-                    print("\n¡Error, digite solo enteros!\nIntente de nuevo...\n")
-            with open("./archivos/cursos.txt","r",encoding="utf8") as cursosTXT:
-                lineas = cursosTXT.readlines()
-                for linea in lineas:
-                    if str(idCurso) == linea.split("|")[0]:
-                        print("\nID ya existe!\n")
-                        cursosTXT.close()
-                        break
-                else:
-                    descripcion = input("Descripcion: ")
-                    idEmpleado = int(input("Ingrese Id del empleado: "))
-                    Curso(idCurso, descripcion, idEmpleado)
-                    cursosTXT = open("./archivos/curso.txt", "a", encoding = "utf8")
-                    cursosTXT.write(f"{idCurso}|{descripcion}|{idEmpleado}\n")
-                    print("="*31)
-                    print("\nCurso agregado exitosamente!\n")
-                    print("="*31)
-                    cursosTXT.close()
-                    break
-
-    @staticmethod #Falta agregar si el usuario no existe imprimirlo por pantalla
-    def borrarCurso():
-        nuevaLista = []
-        while True:
-            try:
-                idCurso = int(input("ID a borrar: "))
-                break
-            except:
-                print("\n¡Error, digite solo enteros!\nIntente de nuevo...\n")
-        with open("./archivos/cursos.txt","r", encoding="utf8") as cursosTXT:
-            for linea in cursosTXT:
-                if linea.split("|")[0] != str(idCurso):
-                    nuevaLista.append(linea)
-            cursosTXT.close()
-            with open("./archivos/cursos.txt","w", encoding="utf8") as cursosW:
-                for n in nuevaLista:
-                    cursosW.write(str(n))
-            print("Borrado exitosamente\n")
-            cursosW.close()
-
-    @staticmethod
-    def modificarCurso():
-        pass
-
-    @staticmethod
-    def mostrarCurso():
-        print(f"{'ID':<5}{'DESCRIPCION':^10}{'IdEmpleado':>15}")
-        print("_"*31)
-        with open("./archivos/cursos.txt", encoding="utf8") as cursosTXT:
-            for linea in cursosTXT:
-                datos = linea.strip().split('|')
-                print(f"{datos[0]:<5}{datos[1]:^10}{datos[2]:>15}")
-        cursosTXT.close()
-
-    @staticmethod
-    def buscarCurso(self):
-        pass
+    def InfoCurso(self):
+        self.archivo = open("./BD/curso.txt",encoding="utf8")
+        self.id_cursosearch = input("Ingresa ID del curso a buscar:\n")
+        for renglon in self.archivo:
+            id = renglon.split("|")[0]
+            if self.id_cursoearch == id:
+                print(renglon)
+        self.archivo.close()
+        
+    def ModificarCurso(self):
+        self.archivo = open("./BD/curso.txt","r",encoding="utf8")
+        self.archivo_temporal = open("./BD/curso_temp.txt","w",encoding="utf8")
+        self.id_change = input("Actual ID:\n")
+        self.__idCurso = input("Nuevo ID\n:")
+        self.__Descripcion = input("Ingrese Nueva Descripcion:\n")
+        self.__Empleado = input("Ingrese nuevo empleado:\n")
+        for renglon in self.archivo:
+            id = renglon.split("|")[0]
+            if self.id_change != id:
+                self.archivo_temporal.write(renglon)
+            elif self.id_change == id:
+                self.archivo_temporal.write(self.__idCurso + "|" + self.__Descripcion + "|" + self.__Empleado + "\n")
+        self.archivo.close()
+        self.archivo_temporal.close()
+        os.remove("./BD/curso.txt")
+        os.rename("./BD/curso_temp.txt","./BD/curso.txt")

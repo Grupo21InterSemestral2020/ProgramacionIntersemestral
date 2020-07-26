@@ -1,2 +1,2 @@
-idCursoTv | idCursoTema | idVideo
+idCursoTv | idVideo | idCursoTema
     
