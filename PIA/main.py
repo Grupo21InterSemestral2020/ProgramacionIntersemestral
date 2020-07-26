@@ -9,7 +9,7 @@ import os
 C = Curso(0,0,0)
 E = Info_Empleado(0,0,0)
 V = Video(0,0,0,0)
-T = temas(0,0)
+T = Tema(0,0)
 CT = Curso_Tema(0,0,0)
 CTV = Curso_Tema_Video(0,0,0)
 
