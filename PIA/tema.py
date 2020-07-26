@@ -50,3 +50,13 @@ class Tema:
         self.archivo = open("./BD/temas.txt",encoding="utf8")
         print(self.archivo.read())
         self.archivo.close()
+
+    def InfoTema(self):
+        self.archivo = open("./BD/temas.txt",encoding="utf8")
+        self.id_temasearch = input("Ingresa ID del Tema a buscar su información:\n")
+        for renglon in self.archivo:
+            id = renglon.split("|")[0]
+            if self.id_temasearch == id:
+                print(renglon)
+        self.archivo.close()
+        
