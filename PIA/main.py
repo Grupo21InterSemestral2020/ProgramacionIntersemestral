@@ -7,10 +7,10 @@ from curso_tema_video import *
 import os
 
 C = Curso(0,0,0)
-E = Info_Empleado(0,0,0)
+E = Empleado(0,0,0)
 V = Video(0,0,0,0)
 T = Tema(0,0)
-CT = Curso_Tema(0,0,0)
+CT = Curso_tema(0,0,0)
 CTV = video_tema(0,0,0)
 
 def menu_principal():

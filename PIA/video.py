@@ -1,10 +1,10 @@
 class Video:
 
-def __init__(self, idVideo, nombre, url, fechapublicacion):
-    self.__idVideo = idVideo
-    self.__nombre = nombre
-    self.__url = url
-    self.__fechapublicacion = fechapublicacion
+    def __init__(self, idVideo, nombre, url, fechapublicacion):
+        self.__idVideo = idVideo
+        self.__nombre = nombre
+        self.__url = url
+        self.__fechapublicacion = fechapublicacion
 
     @property
     def idVideo(self):
@@ -39,14 +39,14 @@ def __init__(self, idVideo, nombre, url, fechapublicacion):
         self.__fechapublicacion = fechapublicacion
 
     def agregarVideo(self):
-            self.archivo = open("./BD/video.txt","a",encoding="utf8")
-            self.__idVideo = input("Ingrese el ID del video que desea insertar:\n")
-            with open("./BD/video.txt","r",encoding="utf8") as video:
-                num = video.readlines()
-                for f in num:
-                    while self.__idVideo in f: 
-                        self.__idVideo = input("Lo sentimos, ese ID ya existe, ingrese otro:\n")
-                    video.close()
+        self.archivo = open("./BD/video.txt","a",encoding="utf8")
+        self.__idVideo = input("Ingrese el ID del video que desea insertar:\n")
+        with open("./BD/video.txt","r",encoding="utf8") as video:
+            num = video.readlines()
+            for f in num:
+                while self.__idVideo in f: 
+                    self.__idVideo = input("Lo sentimos, ese ID ya existe, ingrese otro:\n")
+                video.close()
         self.__nombre = input("Ingrese nombre del video:\n")
         self.__url = input("Ingrese el url del video:\n")
         self.__fechapublicacion = input("Ingrese la fecha en que se publicó el video:\n")
@@ -93,7 +93,7 @@ def __init__(self, idVideo, nombre, url, fechapublicacion):
             if self.id_change != id:
                 self.archivo_temporal.write(renglon)
             elif self.id_change == id:
-                self.archivo_temporal.write(self.__idVideo + "|" + self.__nombre + "|" + self.__url + '|' + self.__fechapublicacion "\n")
+                self.archivo_temporal.write(self.__idVideo + "|" + self.__nombre + "|" + self.__url + "|" + self.__fechapublicacion + "\n")
         self.archivo.close()
         self.archivo_temporal.close()
         os.remove("./BD/video.txt")

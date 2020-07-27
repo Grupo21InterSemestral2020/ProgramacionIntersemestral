@@ -1,8 +1,8 @@
 class video_tema:
     def __init__(self,idCursoTv, idVideo,idCursoTema,):
         self.__idCursoTv = idCursoTv
-        self.__idVideo = idCurso
-        self.__idTema = idTema
+        self.__idVideo = idVideo
+        self.__idCursoTema = idCursoTema
     @property
     def idCursoTv (self):
         return self.__idCursoTv
@@ -24,7 +24,7 @@ class video_tema:
     def idCursoTema (self, valor):
         self.__idCursoTema = valor
 
-      def AgregarVideoAsignado(self):
+    def AgregarVideoAsignado(self):
         self.archivo = open("./BD/curso_tema_videos.txt","a",encoding="utf8")
         self.__idCursoTv = input("Ingrese el ID:\n")
         with open("./BD/curso_tema_videos.txt","r",encoding="utf8") as tema:
@@ -54,11 +54,11 @@ class video_tema:
         print(self.archivo.read())
         self.archivo.close()
     def InfoVideoAsignado(self):
-        self.archivo = open("./BD/curso_tema_videos.txt","r",encoding="utf8"
-        self.idCursoTvsearch = input("Ingresa el ID del Curso video para buscar informacion:\n")
+        self.archivo = open("./BD/curso_tema_videos.txt","r",encoding="utf8")
+        self.id_delete = input("Ingresa ID del empleado a buscar su información:\n")
         for renglon in self.archivo:
             id = renglon.split("|")[0]
-            if self.id_CursoTvsearch == id:
+            if self.id_delete == id:
                 print(renglon)
         self.archivo.close()
     def ModificarVideoAsignado(self):
