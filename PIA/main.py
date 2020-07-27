@@ -52,6 +52,18 @@ while True:
             E.ConsultaEmpleado()
         elif opcion2 == 5:
             E.InfoEmpleado()
+    
+    elif opcion1 == 3:
+        if opcion2 == 1:
+            V.agregarVideo()
+        elif opcion2 == 2:
+            V.borrarVideo()
+        elif opcion2 == 3:
+            V.modificarVideo()
+        elif opcion2 == 4:
+            V.consultaVideos()
+        elif opcion2 == 5:
+            V.detallesVideo()
 
     elif opcion1 == 4:
         if opcion2 == 1:
